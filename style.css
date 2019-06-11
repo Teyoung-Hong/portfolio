@@ -1,0 +1,244 @@
+/*
+Theme Name: TeyoungMedia
+Author: Teyoung Hong
+Description: Not that good I guess.
+Version: 1.0
+*/
+
+/* 
+・BEMを採用
+・block名の先頭にはwrapをつける
+・BLOCK_ELEMENT-MODIFIER
+ */
+
+/* all */
+
+html{
+  font-size: 20px;  
+}
+
+body{
+  font-family: 'serif', 'Times New Roman';
+  padding: 0 40px;
+}
+/* all end */
+
+/* wrap */
+
+.wrap{
+  width: 100%;
+  margin-bottom: 2rem;  
+}
+
+.wrap_header{
+  height: 60px;
+  line-height: 60px;
+  padding: 0 2rem;
+}
+
+.wrap_top{
+  height: 40vh;
+  line-height: 40vh;
+  text-align:center;
+  background-color: dimgray;  
+}
+
+.wrap_bottom{
+    margin: 0 auto;
+}
+
+.wrap_tab{
+  display: flex;
+  padding: 0 2rem;
+}
+
+.wrap_archives{
+}
+
+.wrap_about{
+  display: flex;  
+}
+
+.wrap_contact{
+  padding: 0 2rem;
+}
+
+.wrap_footer{
+  width: 100%;
+  height: 60px;
+  line-height: 60px;
+  background-color: black;
+  text-align: center;
+  color: white;
+}
+/* wrap end */
+
+/* header */
+
+.header_logo{
+  width: 60px;
+  height: 100%;  
+  float: left;
+}
+
+.header_logo--img{
+  max-width: 100%;
+  height: 100%;
+  text-align: center;  
+}
+
+.header_title{
+  margin-left: 10px;  
+  font-size: 1.2rem;
+  font-weight: 600;
+  float: left;
+}
+
+.header_nav{
+  float: right;
+}
+
+.header_nav--lists{
+  display: flex;  
+}
+
+.header_nav--list{
+  margin-right: 20px;  
+}
+
+.header_nav--list:hover{
+  color: rgba(0,0,0,0.7);  
+  cursor: pointer;
+}
+
+  /* search form */
+.form_search{
+  width: 30vw;
+  position: relative;
+  display: flex;
+}
+
+.form_search--text{
+  height: 30px;
+  font-size: 13px;
+  border-style: none;
+  border-bottom: solid 1px black;
+  margin-right: 6vw;
+  position: absolute;
+  bottom: 30px;
+}
+
+.form_search--submit{
+  width: 5vw;
+  height: 30px;
+  line-height: 30px;
+  position: absolute;
+  bottom: 30px;
+  right: 0;  
+  border-style: none;
+  font-size: 20px;
+}
+
+
+  /* search form end */
+
+/* header end */
+
+
+/* top begin */
+.top_slide{
+  
+}
+/* top end */
+
+
+/* bottom begin */
+  /* tab begin */
+.tab_items{
+  display: flex;  
+  width: 100%;
+  height:80px;
+  line-height: 80px;
+}
+
+.tab_item{
+  margin-right: 20px  
+}
+  /* tab end */
+
+  /* archives begin */
+.archives_inner{
+  margin: 0 auto;
+}
+
+.archives_row{
+  display: flex;  
+  margin-bottom: 50px;
+  justify-content: center;
+}
+
+.archives_item{
+  width: 200px;
+  height: 200px;  
+  box-shadow: 5px 5px 10px lightgray;
+  border: solid 1px black;
+  margin: 0 50px;
+}
+  /* archives end */
+  /* about */
+
+.about_common{
+  width: 50vw;
+  height: 60vh;
+  text-align: center;
+  line-height: 60vh;  
+}
+
+.about_left{
+  background-color: black;
+  color: white;
+}
+
+.about_left:hover{
+  background-color: rgba(0,0,0,0.7);
+}
+
+.about_right{
+    
+}
+  /* about end */
+  /* contact */
+
+.contact label{
+  font-size: 0.8rem;  
+  margin-bottom: 0.8rem;
+}
+
+.contact input, .contact textarea{
+  border: none;
+  background-color: lightgray;
+  font-size: 1rem;  
+  padding: 0.5rem;
+}
+
+.contact input{
+  height: 2rem;  
+}
+
+.contact textarea{
+  height: 3rem;  
+}
+
+.contact_tf{
+  margin: 0.5rem 0;
+  width: 50vw;  
+}
+  /* contact end */
+
+
+/* bottom end */
+
+
+/* footer begin */
+/* footer end */
+
