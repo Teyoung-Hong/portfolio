@@ -1,16 +1,20 @@
 <!DOCTYPE html>
-<html>
+<html <?php language_attributes(); ?>>
 <head>
-  <meta charset="UTF-8">
+  <meta charset="<?php bloginfo('charet'); ?>" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Teyoung's media</title>
-  <!-- SEO condes -->
-  <!-- link stylesheet -->
+
+  <!-- stylesheet -->
   <link rel="stylesheet" href="<?php echo get_stylesheet_uri(); ?>">
   <link rel="stylesheet" href="<?php echo get_template_directory_uri(); ?>/reset.css" type="text/css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.0.7/css/swiper.min.css" />
+
   <!-- script -->
-  <!-- css library -->
-  <!-- js library -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.0.7/js/swiper.min.js"></script>
+
   <?php wp_head(); ?>
+
 </head>
 <body <?php body_class(); ?>>
   <!-- header -->
