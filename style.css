@@ -198,6 +198,10 @@ body{
 .tab_item{
   margin-right: 20px  
 }
+
+.category--list_item{
+  margin-right: 2rem;  
+}
   /* tab end */
 
   /* archives begin */
