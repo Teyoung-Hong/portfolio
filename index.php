@@ -15,26 +15,7 @@ get_header();
 <main>
 <!-- top begin  -->
 <div class="wrap_top wrap">
-  <div class="top_slide">
-    <!-- スライドがここに入る slider.js -->
-    <?php echo do_shortcode('[instagram-feed]'); ?>
-  </div>
-</div>
-<!--  top end -->
-
-<!-- bottom begin -->
-<div class="wrap_bottom">
-<div class="wrap_bottom--left">
-  <div class="wrap_tab wrap">
-    <ul class="tab_items">
-      <!-- 選択中のタブはadd class "chosen-tab" -->
-      <li class="tab_item">Category01</li>
-      <li class="tab_item">Category02</li>
-      <li class="tab_item">Category03</li>
-      <li class="tab_item">Category04</li>
-      <li class="tab_item">Category05</li>
-    </ul>
-  </div>
+ <div class="top_slide">
   <!-- 投稿の一覧画面 -->
   <div class="swiper_outer">
     <section class="swiper-container loading">
@@ -44,11 +25,10 @@ get_header();
             while ( have_posts() ) : 
               the_post();
         ?>
-        <div class="swiper-slide">
-          <img src="https://drive.google.com/uc?export=view&id=0B_koKn2rKOkLbVhsNzdIYmlfN1E" class="entity-img" />
-          <div class="content">
-            <p class="title" data-swiper-parallax="-30%" data-swiper-parallax-scale=".7"><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></p>
-            <span class="caption" data-swiper-parallax="-20%"><?php the_excerpt(); ?></span>
+        <div class="swiper-slide" style="background-image: url('<?php the_post_thumbnail_url(); ?>')">
+          <div class="swiper-slide_content">
+            <p class="swiper-slide_title" data-swiper-parallax="-30%" data-swiper-parallax-scale=".7"><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></p>
+            <span class="swiper-slide_caption" data-swiper-parallax="-20%"><?php the_excerpt(); ?></span>
           </div>
         </div>
         <?php
@@ -63,27 +43,53 @@ get_header();
       </div>
     </section>
   </div>
+ </div>
+</div>
+<!--  top end -->
+
+<!-- bottom begin -->
+<div class="wrap_bottom">
+<div class="wrap_bottom--left">
+  <div class="wrap_tab wrap">
+    <ul class="tab_items">
+      <!-- 選択中のタブはadd class "chosen-tab" -->
+      <?php
+        $args = array(
+          'orderby' => 'name'
+        );
+        $categories = get_categories( $args );
+        foreach ( $categories as $category ) {
+          $cat_link = get_category_link($category->cat_ID);
+            echo '<li class="category-list__item"><a href="' . $cat_link . '">' . $category->name . '</a></li>';
+        }
+      ?>
+    </ul>
+  </div>
   <div class="wrap_archives wrap">
     <div class="archives_inner">
       <div class="archives_row">
         <?php
-          if ( have_posts() ) : 
-            while ( have_posts() ) : 
-              the_post();
+          if ( have_posts() ) :
+            $counter = 0;
+             while ( have_posts() ) : the_post();
+            $counter++;
         ?>
         <section class="archives_item">
-          <h2><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h2>
-          <?php the_excerpt(); ?>
+          <h2 class="archives_item--title"><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h2>
+          <div class="archives_item--content"><?php the_excerpt(); ?></div>
         </section>
+        <?php if($counter%2==0){
+          echo ('</div><div class="archives_row">');  
+        } ?>
         <?php
             endwhile;
           endif;
         ?>
-      </div>
-    </div>
-  </div>
+      </div><!-- archives_row -->
+    </div><!-- archives_inner -->
+  </div><!-- wrap_archives -->
   <!-- About -->
-  <div class="wrap_about wrap">
+  <div id="about" class="wrap_about wrap">
     <div class="about_left about_common">
       文章が入ります。
     </div>
@@ -92,8 +98,11 @@ get_header();
     </div>
   </div>
   <!-- About end -->
+  <!-- instagram slide -->
+    <?php echo do_shortcode('[instagram-feed]'); ?>
+  <!-- instagram slide end -->
   <!-- contact -->
-  <div class="wrap_contact contact wrap">
+  <div id="contact" class="wrap_contact contact wrap">
     <?php echo do_shortcode( '[contact-form-7 id="12" title="コンタクトフォーム 1"]' ); ?>
   </div>
   <!-- contact end -->
