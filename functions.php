@@ -12,10 +12,15 @@ add_action(
 );
 
 function teyoung_scripts(){
-
-  wp_enqueue_script('teyoung_slide--pc');
-  
+  wp_enqueue_script(
+    'post-slide',
+    get_stylesheet_directory_uri().'/js/teyoung_slide--pc.js',
+    array('jquery'),
+    '1.0',
+  );
 }
+add_action('wp_footer', 'teyoung_scripts');
 
+add_theme_support('post-thumbnails');
 
- ?>
+?>

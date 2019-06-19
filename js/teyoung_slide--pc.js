@@ -1,14 +1,14 @@
-function(){
+( function(){
   
   // params
   var sliderSelector = ".swiper-container",
     options = {
-      init: false,
+      init: true,
       loop: true,
       speed: 800,
       spaceBetween: 10,
       centeredSlides: true,
-      slidePerView: 2,  
+      slidesPerView: 2,  
       effect: 'coverflow',
       coverflowEffect: {
         rotate: 70,
@@ -35,15 +35,13 @@ function(){
       },
       // Events
       on: {
-        imageErady: function(){
+        imagesReady: function(){
           this.el.classList.remove("loading") ; 
         }  
       }
     };
     
-    var mySwiper = new Swiper(slideSelector, options);
+var mySwiper = new Swiper(sliderSelector, options);
 
-// Initialize slider
-mySwiper.init();
 
-}( JQuery );
+})();
