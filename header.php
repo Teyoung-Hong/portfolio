@@ -8,11 +8,9 @@
   <!-- stylesheet -->
   <link rel="stylesheet" href="<?php echo get_stylesheet_uri(); ?>">
   <link rel="stylesheet" href="<?php echo get_template_directory_uri(); ?>/static/css/reset.css" type="text/css" />
-  <?php 
-    if (is_single()):
+  <?php if (is_single()): ?>
       <link rel="stylesheet" href="<?php echo get_template_directory_uri(); ?>/static/css/single.css" type="text/css" />
-    endif;
-  ?>
+  <?php endif; ?>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.0.7/css/swiper.min.css" />
 
   <?php wp_head(); ?>

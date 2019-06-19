@@ -26,10 +26,12 @@ get_header();
               the_post();
         ?>
         <div class="swiper-slide" style="background-image: url('<?php the_post_thumbnail_url(); ?>')">
+         <div class="swiper-filter">
           <div class="swiper-slide_content">
             <p class="swiper-slide_title" data-swiper-parallax="-30%" data-swiper-parallax-scale=".7"><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></p>
             <span class="swiper-slide_caption" data-swiper-parallax="-20%"><?php the_excerpt(); ?></span>
           </div>
+         </div>
         </div>
         <?php
             endwhile;
@@ -49,6 +51,7 @@ get_header();
 
 <!-- bottom begin -->
 <div class="wrap_bottom">
+<div class="wrap_bottom--both">
 <div class="wrap_bottom--left">
   <div class="wrap_tab wrap">
     <ul class="tab_items">
@@ -74,7 +77,7 @@ get_header();
              while ( have_posts() ) : the_post();
             $counter++;
         ?>
-        <section class="archives_item">
+        <section class="archives_item" style="background-image: url('<?php the_post_thumbnail_url(); ?>');">
           <h2 class="archives_item--title"><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h2>
           <div class="archives_item--content"><?php the_excerpt(); ?></div>
         </section>
@@ -85,9 +88,15 @@ get_header();
             endwhile;
           endif;
         ?>
-      </div><!-- archives_row -->
-    </div><!-- archives_inner -->
-  </div><!-- wrap_archives -->
+      </div><!-- archives_row end -->
+    </div><!-- archives_inner end -->
+  </div><!-- wrap_archives end -->
+</div><!-- bottom left end -->
+<!-- bottom right sidebar  -->
+<div class="wrap_bottom--right">
+  <?php dynamic_sidebar('right-sidebar'); ?>
+</div><!-- bottom right end -->
+</div><!-- wrap_bottom-both -->
   <!-- About -->
   <div id="about" class="wrap_about wrap">
     <div class="about_left about_common">
@@ -106,13 +115,7 @@ get_header();
     <?php echo do_shortcode( '[contact-form-7 id="12" title="コンタクトフォーム 1"]' ); ?>
   </div>
   <!-- contact end -->
-  </div><!-- bottom left end -->
-
-  <div class="wrap_bottom--right">
-    <?php dynamic_sidebar('right-sidebar'); ?>
-  </div><!-- bottom right end -->
-</div>
-<!-- bottom end -->
+</div><!-- bottom end -->
 </main>
 
 <!-- footer begin -->
